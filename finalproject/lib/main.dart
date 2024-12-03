@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Browse Posts'),
+          title: const Text('Browse Posts'),
           backgroundColor: Colors.blue, // Set AppBar background color
         ),
         body: _buildPostList(),
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
             print('FAB Pressed');
             _navigateToNextScreen(context);
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
       stream: FirebaseFirestore.instance.collection('shital').snapshots(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (snapshot.hasError) {
@@ -101,7 +101,7 @@ class MyApp extends StatelessWidget {
         }).toList();
 
         if (postList.isEmpty) {
-          return Center(child: Text('No posts available.'));
+          return const Center(child: Text('No posts available.'));
         }
 
         return ListView.builder(
@@ -110,20 +110,20 @@ class MyApp extends StatelessWidget {
             return Card(
               color: Colors.teal[50],
               elevation: 4,
-              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
               child: ListTile(
                 onTap: () {
                   _navigateToPostDetailScreen(context, postList[index]);
                 },
-                contentPadding: EdgeInsets.all(16),
-                leading: Container(
+                contentPadding: const EdgeInsets.all(16),
+                leading: SizedBox(
                   width: 80,
                   height: 80,
                   child: postList[index].imageUrl1.isNotEmpty
                       ? CachedNetworkImage(
                     imageUrl: postList[index].imageUrl1,
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.image),
+                    placeholder: (context, url) => const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const Icon(Icons.image),
                     fit: BoxFit.cover,
                   )
                       : Container(),
@@ -133,14 +133,14 @@ class MyApp extends StatelessWidget {
                   children: [
                     Text(
                       'Title: ${postList[index].title}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       'Price: \$${postList[index].price.toStringAsFixed(2)}',
-                      style: TextStyle(fontSize: 12.0),
+                      style: const TextStyle(fontSize: 12.0),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
 
                   ],
                 ),

@@ -90,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
 class WelcomeScreen extends StatefulWidget {
   final User? user;
 
-  WelcomeScreen({required this.user});
+  const WelcomeScreen({super.key, required this.user});
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();

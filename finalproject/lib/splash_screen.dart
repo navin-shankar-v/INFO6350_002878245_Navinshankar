@@ -7,7 +7,7 @@ class SplashScreen extends StatefulWidget {
   final Widget? child;
   final User? user;
 
-  const SplashScreen({Key? key, this.child, this.user}) : super(key: key);
+  const SplashScreen({super.key, this.child, this.user});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
 
     _controller = AnimationController(
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
       vsync: this,
     );
 
@@ -33,11 +33,11 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Use Timer to navigate after 3 seconds
     Timer(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
           () {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => MyApp()),
+          MaterialPageRoute(builder: (context) => const MyApp()),
               (route) => false,
         );
       },

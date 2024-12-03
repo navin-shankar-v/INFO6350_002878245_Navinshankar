@@ -8,6 +8,8 @@ void main() {
 }
 
 class StaggerDemo extends StatefulWidget {
+  const StaggerDemo({super.key});
+
   @override
   _StaggerDemoState createState() => _StaggerDemoState();
 }
@@ -73,7 +75,7 @@ class StaggerAnimation extends StatelessWidget {
   ).animate(
     CurvedAnimation(
       parent: controller,
-      curve: Interval(0.0, 0.100, curve: Curves.ease),
+      curve: const Interval(0.0, 0.100, curve: Curves.ease),
     ),
   ),
         width = Tween<double>(
@@ -82,7 +84,7 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0.125, 0.250, curve: Curves.ease),
+            curve: const Interval(0.125, 0.250, curve: Curves.ease),
           ),
         ),
         height = Tween<double>(
@@ -91,7 +93,7 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0.250, 0.375, curve: Curves.ease),
+            curve: const Interval(0.250, 0.375, curve: Curves.ease),
           ),
         ),
         padding = EdgeInsetsTween(
@@ -100,14 +102,14 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0.250, 0.375, curve: Curves.ease),
+            curve: const Interval(0.250, 0.375, curve: Curves.ease),
           ),
         ),
         borderRadius = Tween<BorderRadius>(
           begin: BorderRadius.circular(4.0),
           end: BorderRadius.circular(75.0),
         ).chain(
-          CurveTween(curve: Interval(0.375, 0.500, curve: Curves.ease)),
+          CurveTween(curve: const Interval(0.375, 0.500, curve: Curves.ease)),
         ).animate(controller),
 
         color = ColorTween(
@@ -116,7 +118,7 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0.500, 0.750, curve: Curves.ease),
+            curve: const Interval(0.500, 0.750, curve: Curves.ease),
           ),
         ),
         super(key: key);

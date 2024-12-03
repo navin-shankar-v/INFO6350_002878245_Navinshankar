@@ -12,6 +12,8 @@ import 'GoogleSignInScreen .dart';
 import 'SignUpScreen.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _SignInScreenState createState() => _SignInScreenState();

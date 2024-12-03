@@ -7,6 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class New_Post_Screen extends StatefulWidget {
+  const New_Post_Screen({super.key});
+
   @override
   _NewPostScreenState createState() => _NewPostScreenState();
 }
@@ -134,7 +136,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
         fit: BoxFit.cover,
       );
     } else {
-      return Center(
+      return const Center(
         child: Icon(
           Icons.add,
         ),
@@ -150,7 +152,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
 
       if (title.isEmpty || price == 0.0 || description.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Please fill in all the required fields.'),
             duration: Duration(seconds: 2),
           ),
@@ -174,7 +176,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
       };
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('New post added successfully.'),
           duration: Duration(seconds: 3),
         ),
@@ -198,7 +200,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
     } catch (error) {
       print('Error adding post: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Error adding post. Please try again.'),
           duration: Duration(seconds: 3),
         ),
@@ -216,7 +218,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
             backgroundColor: Colors.blue,
             actions: [
               IconButton(
-                icon: Icon(Icons.check),
+                icon: const Icon(Icons.check),
                 onPressed: () => _postButtonPressed(context),
               ),
             ],
@@ -227,7 +229,7 @@ class _NewPostScreenState extends State<New_Post_Screen> {
               children: [
                 TextField(
                   controller: _titleController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Title',
                   ),
                   onChanged: (value) {
@@ -236,10 +238,10 @@ class _NewPostScreenState extends State<New_Post_Screen> {
                     });
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 TextField(
                   controller: _priceController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Price',
                   ),
                   onChanged: (value) {
@@ -248,10 +250,10 @@ class _NewPostScreenState extends State<New_Post_Screen> {
                     });
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 TextField(
                   controller: _descriptionController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Description',
                   ),
                   onChanged: (value) {
@@ -276,16 +278,16 @@ class _NewPostScreenState extends State<New_Post_Screen> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       ListTile(
-                                        leading: Icon(Icons.camera),
-                                        title: Text('Take a photo'),
+                                        leading: const Icon(Icons.camera),
+                                        title: const Text('Take a photo'),
                                         onTap: () {
                                           _openCamera(context, i);
                                           Navigator.pop(context);
                                         },
                                       ),
                                       ListTile(
-                                        leading: Icon(Icons.photo),
-                                        title: Text('Choose from gallery'),
+                                        leading: const Icon(Icons.photo),
+                                        title: const Text('Choose from gallery'),
                                         onTap: () {
                                           _openGallery(context, i);
                                           Navigator.pop(context);
@@ -310,10 +312,10 @@ class _NewPostScreenState extends State<New_Post_Screen> {
                       ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () => _postButtonPressed(context),
-                  child: Text('Post'),
+                  child: const Text('Post'),
                 ),
               ],
             ),

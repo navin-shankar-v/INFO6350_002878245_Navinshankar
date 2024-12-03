@@ -5,7 +5,7 @@ import 'main.dart';
 class Post_Detail_Screen extends StatefulWidget {
   final Post post;
 
-  const Post_Detail_Screen({Key? key, required this.post}) : super(key: key);
+  const Post_Detail_Screen({super.key, required this.post});
 
   @override
   _PostDetailScreenState createState() => _PostDetailScreenState();
@@ -36,9 +36,9 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Post Details', style: TextStyle(color: Colors.white)),
+        title: const Text('Post Details', style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -54,7 +54,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
             children: [
               Container(
                 height: MediaQuery.of(context).size.height * 0.5,
-                margin: EdgeInsets.all(16.0),
+                margin: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 2.0),
                   borderRadius: BorderRadius.circular(12.0),
@@ -63,7 +63,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 3,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -75,7 +75,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[50], // Light yellow background color
                   borderRadius: BorderRadius.circular(12.0),
@@ -84,7 +84,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 3,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -96,16 +96,16 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
                         children: [
                           Text(
                             'Title: ${widget.post.title}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 24.0,
                               color: Colors.black,
                               fontFamily: 'YourFontFamily', // Set your desired font family
                             ),
                           ),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                           Text(
                             'Description: ${widget.post.description}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18.0,
                               color: Colors.black,
                               fontFamily: 'YourFontFamily', // Set your desired font family
@@ -115,14 +115,14 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.blue,
                         shape: BoxShape.circle,
                       ),
-                      padding: EdgeInsets.all(23.0),
+                      padding: const EdgeInsets.all(23.0),
                       child: Text(
                         '\$${widget.post.price.toStringAsFixed(2)}',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                        style: const TextStyle(fontSize: 18.0, color: Colors.white),
                       ),
                     ),
                   ],
@@ -149,7 +149,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
             },
           ),
         ),
-        SizedBox(height: 10.0),
+        const SizedBox(height: 10.0),
         _buildDots(imageUrls.length),
       ],
     );
@@ -160,7 +160,7 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(length, (index) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 3.0),
+          margin: const EdgeInsets.symmetric(horizontal: 3.0),
           width: 10.0,
           height: 5.0,
           decoration: BoxDecoration(
@@ -179,8 +179,8 @@ class _PostDetailScreenState extends State<Post_Detail_Screen> {
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         fit: BoxFit.cover,
-        placeholder: (context, url) => CircularProgressIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
+        placeholder: (context, url) => const CircularProgressIndicator(),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     )
         : Container();
